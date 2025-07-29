@@ -7,7 +7,7 @@ This concept directly applies to strings in Python. Since strings are immutable,
 Escape characters in Python are used to represent characters that are difficult or impossible to type directly into a string, such as newlines, tabs, or quotes. They start with a backslash (\), which tells Python to treat the next character in a special way rather than as a literal character.
 For example, if you want to include a double quote inside a string that's enclosed in double quotes, you use the escape character \" to prevent Python from ending the string too early. Similarly, \n represents a newline, causing the text to move to the next line when printed, and \t represents a tab space.
 
-#QUESTION 1 #Write a Python program that takes a string and removes all vowels.
+#Write a Python program that takes a string and removes all vowels.
 
 str1="Write a Python program that takes a string and removes all vowels."
 result = ""
@@ -18,7 +18,7 @@ print(result)
 
 
 
-#QUESTION 2 #Given a string, write a program to count the frequency of each character.
+#Given a string, write a program to count the frequency of each character.
 frequency1={}
 str1="Given a string, write a program to count the frequency of each character."
 
@@ -33,7 +33,7 @@ for key,value in frequency1.items():
 
 
 
-#QUESTION 3 #Write a Python program to check if two given strings are anagrams of each other
+#Write a Python program to check if two given strings are anagrams of each other
 frequency1={}
 frequency2={}
 str1="listen"
@@ -58,4 +58,52 @@ else:
 
 
 #Write code to reverse the order of words in a sentence, without using built-in reverse functions
+lst1 = "Write code to reverse the order of words in a sentence, without using built-in reverse functions"
+lst2 = lst1.split(" ")[::-1]
+print(lst2)
 
+
+#Write a Python program to find the longest substring without repeating characters.
+def longest_unique_substring(s):
+    seen = {}
+    start = 0
+    max_len = 0
+    longest = ""
+
+    for i, char in enumerate(s):
+        if char in seen and seen[char] >= start:
+            start = seen[char] + 1 
+
+        seen[char] = i  
+        current_len = i - start + 1
+
+        if current_len > max_len:
+            max_len = current_len
+            longest = s[start:i+1]
+
+    return longest
+
+#Write a program to check if a string is a palindrome, ignoring spaces and punctuation,
+def is_palindrome(s):
+    
+    cleaned=""
+    for char in s:
+        if char.isalnum():
+            cleaned+=char.lower()
+            
+    if cleaned == cleaned[::-1]:
+        print("Its a palindrome")
+    else:
+        print("Its not a palindrome")
+
+#Write code to convert a string so that the first letter of each word is capitalized (like title case), without using .
+#with out using Title()
+
+str1="my name is siddhant girdhar and i love ust"
+words=str1.split()
+result=""
+
+for word in words:
+    result+= word[0].upper() + word[1:] + " "
+    
+print(result)
